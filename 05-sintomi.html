@@ -300,5 +300,16 @@
       });
     });
   </script>
+  <script>
+    (function(){
+      function sendHeight(){
+        var h = document.body.scrollHeight;
+        window.parent.postMessage({frameHeight: h, frameUrl: window.location.href}, '*');
+      }
+      window.addEventListener('load', sendHeight);
+      window.addEventListener('resize', sendHeight);
+      setInterval(sendHeight, 500);
+    })();
+  </script>
 </body>
 </html>
