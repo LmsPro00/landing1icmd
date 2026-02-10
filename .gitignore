@@ -1,12 +1,12 @@
-# Source image files (already copied/renamed into images/)
-icmdlogo1.png
-sinner1.jpeg
-tamberi1.webp
-goggia1.jpg
-dilorenzo1.jpg
-immagine sales1*
-pay1.png
-pay2.png
+# Source image files at root (already copied/renamed into images/)
+/icmdlogo1.png
+/sinner1.jpeg
+/tamberi1.webp
+/goggia1.jpg
+/dilorenzo1.jpg
+/immagine sales1*
+/pay1.png
+/pay2.png
 
 # Extra files not needed in repo
 *.docx
