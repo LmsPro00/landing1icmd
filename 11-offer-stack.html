@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stress Reset System — Offerta</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      margin: 0; padding: 0;
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 400;
+      background: #0A0A1A;
+      color: #FFFFFF;
+      overflow-x: hidden;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .container { max-width: 1060px; margin: 0 auto; padding: 80px 24px; }
+
+    .section-title {
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 700;
+      font-size: clamp(36px, 6vw, 64px);
+      text-align: center;
+      margin-bottom: 50px;
+      line-height: 1.1;
+    }
+
+    /* 3-Card Pricing Grid */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr 1fr;
+      gap: 20px;
+      align-items: center;
+      margin-bottom: 50px;
+    }
+
+    .pricing-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 20px;
+      padding: 36px 28px;
+      text-align: center;
+    }
+
+    /* Side cards — faded */
+    .pricing-side {
+      opacity: 0.35;
+      transform: scale(0.93);
+    }
+
+    /* Center card — highlighted */
+    .pricing-center {
+      position: relative;
+      background: rgba(255,255,255,0.03);
+      border: none;
+      box-shadow: 0 8px 40px rgba(255,215,0,0.08);
+      padding: 44px 32px;
+    }
+    .pricing-center::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      padding: 2px;
+      background: linear-gradient(135deg, #FFD700, #FF8C00, #FFD700);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .pricing-label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+      color: rgba(255,255,255,0.4);
+    }
+    .pricing-center .pricing-label {
+      display: inline-block;
+      background: linear-gradient(135deg, #FFD700, #FF8C00);
+      color: #0A0A1A;
+      padding: 4px 16px;
+      border-radius: 50px;
+      font-size: 11px;
+    }
+
+    .pricing-old {
+      font-size: 16px;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 8px;
+    }
+    .pricing-old s { font-weight: 700; }
+
+    .pricing-amount {
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 700;
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: rgba(255,255,255,0.5);
+    }
+    .pricing-center .pricing-amount {
+      font-size: clamp(48px, 8vw, 68px);
+      background: linear-gradient(90deg, #FFD700, #FF8C00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.1;
+    }
+
+    .pricing-list {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 24px;
+    }
+    .pricing-list li {
+      padding: 5px 0;
+      font-size: 14px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.6);
+    }
+    .pricing-center .pricing-list li { color: rgba(255,255,255,0.8); }
+    .check-sm { width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px; }
+
+    .pricing-savings {
+      font-size: 15px;
+      color: #00D26A;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #00D26A, #00F5A0);
+      color: #fff;
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 18px; font-weight: 700;
+      padding: 18px 36px; border-radius: 14px;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(0,210,106,0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+      animation: ctaPulse 3s ease-in-out infinite;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,210,106,0.45); }
+    @keyframes ctaPulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(0,210,106,0.3); }
+      50% { box-shadow: 0 4px 28px rgba(0,210,106,0.45); }
+    }
+
+    .cta-sub { margin-top: 14px; font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.6; }
+    .cta-sub strong {
+      background: linear-gradient(90deg, #FFD700, #FF8C00);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+
+    .emotional-text {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 50px;
+      font-size: 18px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.6);
+    }
+    .emotional-text p { margin-bottom: 8px; }
+    .emotional-text strong {
+      background: linear-gradient(90deg, #FFD700, #FF8C00);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+
+    .section-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); }
+
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      .container { padding: 60px 20px; }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 420px; margin-left: auto; margin-right: auto; }
+      .pricing-side { display: none; }
+      .pricing-center { transform: none; }
+      .emotional-text { font-size: 16px; }
+    }
+    @media (max-width: 480px) {
+      .cta-btn { font-size: 16px; padding: 16px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2 class="section-title fade-in">COSA RICEVI:</h2>
+
+    <div class="pricing-grid fade-in">
+
+      <!-- Left Card — Original Price -->
+      <div class="pricing-card pricing-side">
+        <div class="pricing-label">Prezzo Originale</div>
+        <div class="pricing-amount">461 €</div>
+        <ul class="pricing-list">
+          <li><svg class="check-sm" viewBox="0 0 16 16" fill="none"><path d="M4 8.5l2.5 2.5 5-5.5" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Sistema Completo 6 Minuti</li>
+          <li><svg class="check-sm" viewBox="0 0 16 16" fill="none"><path d="M4 8.5l2.5 2.5 5-5.5" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> 4 moduli video + PDF</li>
+          <li><svg class="check-sm" viewBox="0 0 16 16" fill="none"><path d="M4 8.5l2.5 2.5 5-5.5" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Audio 432 Hz</li>
+          <li><svg class="check-sm" viewBox="0 0 16 16" fill="none"><path d="M4 8.5l2.5 2.5 5-5.5" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> 4 Bonus inclusi</li>
+          <li><svg class="check-sm" viewBox="0 0 16 16" fill="none"><path d="M4 8.5l2.5 2.5 5-5.5" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Accesso a vita</li>
+        </ul>
+      </div>
+
+      <!-- Center Card — Launch Offer -->
+      <div class="pricing-card pricing-center">
+        <div class="pricing-label">OFFERTA LIMITATA</div>
+        <div class="pricing-old"><s>461 €</s></div>
+        <div class="pricing-amount">7 €</div>
+        <ul class="pricing-list">
+          <li><svg class="check-sm" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#00D26A" opacity="0.15"/><path d="M5 8.5l2 2 4-4.5" stroke="#00D26A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Il Sistema Completo di Reset dello Stress in 6 Minuti</li>
+          <li><svg class="check-sm" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#00D26A" opacity="0.15"/><path d="M5 8.5l2 2 4-4.5" stroke="#00D26A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> 4 moduli video + guide PDF pratiche</li>
+          <li><svg class="check-sm" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#00D26A" opacity="0.15"/><path d="M5 8.5l2 2 4-4.5" stroke="#00D26A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Audio "Reset Mentale" a 432 Hz</li>
+          <li><svg class="check-sm" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#00D26A" opacity="0.15"/><path d="M5 8.5l2 2 4-4.5" stroke="#00D26A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Organizzatore Anti-Stress</li>
+          <li><svg class="check-sm" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#00D26A" opacity="0.15"/><path d="M5 8.5l2 2 4-4.5" stroke="#00D26A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Accesso digitale immediato (inizi in 2 minuti)</li>
+          <li><svg class="check-sm" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#00D26A" opacity="0.15"/><path d="M5 8.5l2 2 4-4.5" stroke="#00D26A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Accesso a vita (per sempre tuo)</li>
+          <li><svg class="check-sm" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#00D26A" opacity="0.15"/><path d="M5 8.5l2 2 4-4.5" stroke="#00D26A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Garanzia 30 giorni "O ti piace o è gratis"</li>
+        </ul>
+        <div class="pricing-savings">Risparmi 454 € (98% di sconto).</div>
+        <a href="https://leonardoleone.thrivecart.com/stress-reset-system/" target="_blank" rel="noopener" class="cta-btn">Ottieni il 75% di sconto sul programma</a>
+        <div class="cta-sub">
+          <strong>57 Posti Rimasti</strong> per accedere a Stress Reset System a 7 euro<br>
+          Garanzia soddisfatto o rimborsato di 120 giorni
+        </div>
+      </div>
+
+      <!-- Right Card — Future Price -->
+      <div class="pricing-card pricing-side">
+        <div class="pricing-label">Prezzo Futuro</div>
+        <div class="pricing-amount">181 €</div>
+        <ul class="pricing-list">
+          <li><svg class="check-sm" viewBox="0 0 16 16" fill="none"><path d="M4 8.5l2.5 2.5 5-5.5" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Sistema Completo 6 Minuti</li>
+          <li><svg class="check-sm" viewBox="0 0 16 16" fill="none"><path d="M4 8.5l2.5 2.5 5-5.5" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> 4 moduli video + PDF</li>
+          <li><svg class="check-sm" viewBox="0 0 16 16" fill="none"><path d="M4 8.5l2.5 2.5 5-5.5" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Audio 432 Hz</li>
+          <li><svg class="check-sm" viewBox="0 0 16 16" fill="none"><path d="M4 8.5l2.5 2.5 5-5.5" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Bonus esclusi</li>
+          <li><svg class="check-sm" viewBox="0 0 16 16" fill="none"><path d="M4 8.5l2.5 2.5 5-5.5" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Accesso a vita</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="emotional-text fade-in">
+      <p>7 € sono meno di un aperitivo. Ma in questo caso non li spendi al bar,</p>
+      <p><strong>7 € per riprenderti la tua vita.</strong></p>
+      <p><strong>7 € per tornare ad essere te stesso.</strong></p>
+      <p><strong>7 € per smettere di sentirti sopraffatto.</strong></p>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+        });
+      }, { threshold: 0.1 });
+      var els = document.querySelectorAll('.fade-in');
+      els.forEach(function(el, i) { el.style.transitionDelay = (i * 0.08) + 's'; observer.observe(el); });
+    });
+  </script>
+</body>
+</html>

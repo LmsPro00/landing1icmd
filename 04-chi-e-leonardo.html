@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stress Reset System — Chi è Leonardo Leone</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      margin: 0; padding: 0;
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 400;
+      background: #0F0F24;
+      color: #FFFFFF;
+      overflow-x: hidden;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+
+    .section-title {
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 700;
+      font-size: clamp(36px, 6vw, 64px);
+      text-align: center;
+      margin-bottom: 50px;
+      line-height: 1.1;
+    }
+
+    .bio-layout {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    .bio-image-wrap { flex: 0 0 300px; }
+    .bio-text { flex: 1; }
+
+    .img-slot {
+      position: relative;
+      background: linear-gradient(135deg, #12122a, #0A0A1A);
+      border: 1px dashed rgba(255,255,255,0.1);
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.2);
+      font-size: 13px;
+      overflow: hidden;
+    }
+    .img-slot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 24px;
+      display: block;
+    }
+    .img-slot .placeholder-text { position: absolute; pointer-events: none; }
+    .img-slot img:not([src=""]) ~ .placeholder-text { display: none; }
+
+    .bio-img-slot {
+      width: 100%;
+      height: 420px;
+      border-radius: 24px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+    }
+
+    .bio-text p {
+      margin-bottom: 16px;
+      color: rgba(255,255,255,0.7);
+      font-size: 17px;
+      line-height: 1.8;
+    }
+    .bio-text p:last-child { margin-bottom: 0; }
+    .bio-text strong { color: #FFFFFF; }
+
+    /* CTA */
+    .cta-wrap { text-align: center; margin-top: 50px; }
+
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #00D26A, #00F5A0);
+      color: #fff;
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 18px 44px;
+      border-radius: 14px;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(0,210,106,0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+      animation: ctaPulse 3s ease-in-out infinite;
+      max-width: 100%;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(0,210,106,0.45);
+    }
+    @keyframes ctaPulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(0,210,106,0.3); }
+      50% { box-shadow: 0 4px 28px rgba(0,210,106,0.45); }
+    }
+
+    .cta-sub {
+      margin-top: 14px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.7;
+    }
+    .cta-sub strong {
+      background: linear-gradient(90deg, #FFD700, #FF8C00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      .bio-layout { flex-direction: column; gap: 30px; }
+      .bio-image-wrap { flex: none; width: 100%; max-width: 320px; margin: 0 auto; }
+      .bio-img-slot { height: 360px; }
+      .container { padding: 60px 20px; }
+    }
+
+    @media (max-width: 480px) {
+      .cta-btn { font-size: 16px; padding: 16px 28px; }
+      .bio-img-slot { height: 300px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2 class="section-title fade-in">CHI È LEONARDO LEONE?</h2>
+
+    <div class="bio-layout fade-in">
+      <div class="bio-image-wrap">
+        <div class="img-slot bio-img-slot">
+          <img src="images/leonardo-leone.png" alt="Leonardo Leone — Formatore e Imprenditore" onerror="this.style.display='none'">
+          <span class="placeholder-text">LEONARDO LEONE</span>
+        </div>
+      </div>
+
+      <div class="bio-text">
+        <p>Leonardo Leone, padre ed imprenditore con centinaia di collaboratori, fondatore di diverse aziende in vari settori, è anche il formatore che ha fondato la prima scuola di evoluzione personale in Italia con un record di crescita e risultati in soli due anni.</p>
+
+        <p>Ad oggi oltre <strong>60.000 persone</strong> hanno seguito i suoi percorsi di formazione. Autore Rai con Adriana Volpe di un programma sul tema lavoro.</p>
+
+        <p>Autore di <strong>3 libri divenuti best seller</strong>, ormai voce del popolo sui social con oltre <strong>800.000 followers</strong>.</p>
+
+        <p>Leonardo ha costruito tutto questo partendo dalle case popolari di Roma. Il segreto? <strong>Sudore, lavoro e le giuste informazioni.</strong></p>
+
+        <p>Se in questo momento non stai raggiungendo i tuoi obiettivi, le informazioni in tuo possesso non sono quelle corrette. <strong>Ora puoi ottenerle!</strong></p>
+      </div>
+    </div>
+
+    <div class="cta-wrap fade-in">
+      <a href="https://leonardoleone.thrivecart.com/stress-reset-system/" target="_blank" rel="noopener" class="cta-btn">Ottieni il 75% di sconto sul programma</a>
+      <div class="cta-sub">
+        <strong>57 Posti Rimasti</strong> per accedere a Stress Reset System a 7 euro<br>
+        Garanzia soddisfatto o rimborsato di 120 giorni
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+        });
+      }, { threshold: 0.1 });
+      var els = document.querySelectorAll('.fade-in');
+      els.forEach(function(el, i) {
+        el.style.transitionDelay = (i * 0.08) + 's';
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>

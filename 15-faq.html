@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stress Reset System — FAQ</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      margin: 0; padding: 0;
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 400;
+      background: #0A0A1A;
+      color: #FFFFFF;
+      overflow-x: hidden;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .container { max-width: 880px; margin: 0 auto; padding: 80px 24px; }
+
+    .section-title {
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 700;
+      font-size: clamp(36px, 6vw, 64px);
+      text-align: center;
+      margin-bottom: 50px;
+      line-height: 1.1;
+    }
+
+    .faq-list { max-width: 740px; margin: 0 auto; }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .faq-item:first-child {
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 20px 0;
+      cursor: pointer;
+      user-select: none;
+      transition: color 0.2s;
+    }
+    .faq-question:hover { color: #FFD700; }
+
+    .faq-question-text {
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 1.5;
+      flex: 1;
+    }
+
+    .faq-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), background 0.3s ease, border-color 0.3s ease;
+      color: rgba(255,255,255,0.4);
+      font-size: 16px;
+      font-weight: 300;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+      background: rgba(255,215,0,0.1);
+      border-color: rgba(255,215,0,0.25);
+      color: #FFD700;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+    }
+
+    .faq-answer-inner {
+      padding: 0 0 22px;
+      font-size: 15px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      .container { padding: 60px 20px; }
+      .faq-question-text { font-size: 15px; }
+      .faq-answer-inner { font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2 class="section-title fade-in">Domande frequenti (FAQ)</h2>
+
+    <div class="faq-list fade-in">
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">Questo metodo funziona davvero o è l'ennesima cosa che promette troppo?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            È una domanda più che legittima. La differenza è che questo metodo non lavora sulla forza di volontà, ma sul sistema nervoso. Non devi "calmarti", convincerti o pensare positivo: segui un semplice schema di respirazione che manda al cervello un segnale fisico di sicurezza. Per questo molte persone sentono un cambiamento già dalla prima sessione.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">E se per me non funzionasse?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Per questo c'è la garanzia di 30 giorni. Lo provi senza rischi. Se non senti un cambiamento reale, ci scrivi e ti rimborsiamo tutto. E tieni comunque il materiale. Zero rischi.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">Serve esperienza con meditazione o tecniche simili?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            No. Anzi, questo sistema è pensato proprio per chi non è mai riuscito a meditare o si è sempre sentito "incapace". Non devi svuotare la mente, concentrarti o stare fermo a lungo. Segui il ritmo, respiri, e il corpo fa il resto.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">Quanto tempo mi serve ogni giorno?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Solo 6 minuti. E nei giorni in cui sei troppo stanco o agitato, puoi usare l'audio a 432 Hz mentre fai altro (lavori, guidi, dormi). È pensato per persone con poco tempo e tanta pressione.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">In quanto tempo si vedono i risultati?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Molte persone sentono un cambiamento già dalla prima volta. Con l'uso quotidiano, i benefici diventano sempre più stabili nel giro di pochi giorni o settimane. Dipende dal livello di stress da cui parti, ma il metodo lavora subito sul sistema nervoso.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">È adatto anche se sto attraversando un periodo molto difficile?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Sì. Questo sistema non richiede energia mentale extra, anzi: è pensato proprio per chi si sente al limite, esausto o sopraffatto. Non devi "fare di più", devi solo seguire il protocollo.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">È sicuro?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Sì. Si basa su tecniche di respirazione e coerenza cardiaca utilizzate da anni anche in ambito clinico, sportivo e militare. Non è invasivo e non sostituisce eventuali cure mediche, ma può essere un supporto concreto nella gestione dello stress.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">Come funziona l'accesso?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Subito dopo l'acquisto ricevi una mail con l'accesso immediato. Puoi iniziare entro pochi minuti, da qualsiasi dispositivo.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">Perché costa solo 7 €?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            È un prezzo di lancio. L'obiettivo è far provare il metodo al maggior numero di persone possibile e raccogliere testimonianze reali. In futuro il prezzo tornerà molto più alto.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">Ci sono costi nascosti o abbonamenti?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            No. Paghi una sola volta e hai accesso a vita. Nessun abbonamento, nessuna sorpresa.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function toggleFaq(el) {
+      var item = el.parentElement;
+      var wasActive = item.classList.contains('active');
+
+      document.querySelectorAll('.faq-item').forEach(function(faq) {
+        faq.classList.remove('active');
+      });
+
+      if (!wasActive) {
+        item.classList.add('active');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+        });
+      }, { threshold: 0.1 });
+      var els = document.querySelectorAll('.fade-in');
+      els.forEach(function(el, i) { el.style.transitionDelay = (i * 0.08) + 's'; observer.observe(el); });
+    });
+  </script>
+</body>
+</html>

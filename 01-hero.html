@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stress Reset System — Hero</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      margin: 0; padding: 0;
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 400;
+      background: #0A0A1A;
+      color: #FFFFFF;
+      overflow-x: hidden;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    /* Urgency Bar — White Marquee */
+    .urgency-bar {
+      background: #FFFFFF;
+      overflow: hidden;
+      padding: 8px 0;
+      position: relative;
+    }
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marqueeScroll 22s linear infinite;
+    }
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+    .marquee-item {
+      white-space: nowrap;
+      color: #111111;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 0 32px;
+      letter-spacing: 0.3px;
+    }
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .container {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 52px 28px 40px;
+    }
+
+    .hero-layout {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .hero-text { flex: 1; min-width: 0; }
+
+    .hero-image-wrap {
+      flex: 0 0 380px;
+      max-width: 380px;
+    }
+
+    /* Hero Logo */
+    .hero-logo {
+      display: block;
+      max-width: 200px;
+      width: auto;
+      height: auto;
+      margin-bottom: 18px;
+      opacity: 0.85;
+    }
+
+    /* Symptoms Pill */
+    .symptoms-line {
+      display: inline-block;
+      background: rgba(255,59,59,0.1);
+      border: 1px solid rgba(255,59,59,0.3);
+      border-radius: 50px;
+      padding: 6px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: #FF3B3B;
+      margin-bottom: 20px;
+      line-height: 1.5;
+      max-width: 100%;
+      word-wrap: break-word;
+    }
+
+    /* Main Headline */
+    .main-headline {
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 700;
+      font-size: clamp(32px, 5vw, 52px);
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: 18px;
+    }
+    .hl-stress {
+      background: linear-gradient(120deg, rgba(255,59,59,0.25) 0%, rgba(255,59,59,0.15) 100%);
+      padding: 1px 8px;
+      border-radius: 4px;
+    }
+    .hl-danger {
+      color: #FF3B3B;
+    }
+
+    /* Sub-headline */
+    .sub-headline {
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 24px;
+    }
+    .sub-headline em { font-style: italic; }
+    .sub-headline strong { color: #fff; }
+    .highlight-method {
+      font-weight: 700;
+      background: linear-gradient(90deg, #FFD700, #FF8C00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Benefits */
+    .benefits-list {
+      list-style: none;
+      margin-bottom: 28px;
+    }
+    .benefits-list li {
+      padding: 5px 0;
+      font-size: 15px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.85);
+    }
+    .check-icon {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    /* CTA */
+    .cta-wrap { margin-top: 8px; }
+
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #00D26A, #00F5A0);
+      color: #fff;
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 18px 44px;
+      border-radius: 14px;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(0,210,106,0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+      animation: ctaPulse 3s ease-in-out infinite;
+      max-width: 100%;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(0,210,106,0.45);
+    }
+    @keyframes ctaPulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(0,210,106,0.3); }
+      50% { box-shadow: 0 4px 28px rgba(0,210,106,0.45); }
+    }
+
+    .cta-sub {
+      margin-top: 14px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.7;
+    }
+    .cta-sub strong {
+      background: linear-gradient(90deg, #FFD700, #FF8C00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+
+    /* Image Slot */
+    .img-slot {
+      position: relative;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.2);
+      font-size: 13px;
+      overflow: visible;
+    }
+    .img-slot img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+    .img-slot .placeholder-text {
+      position: absolute;
+      pointer-events: none;
+    }
+    .img-slot img:not([src=""]) ~ .placeholder-text { display: none; }
+
+    .hero-img-slot {
+      width: 100%;
+    }
+
+    .pay-img {
+      max-width: 340px;
+      width: 100%;
+      margin-top: 20px;
+      opacity: 0.7;
+      filter: brightness(0.9);
+    }
+
+    /* Section Divider */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+      margin-top: 0;
+    }
+
+    /* Fade-in with stagger */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Sticky Mobile CTA */
+    .sticky-cta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(10,10,26,0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 12px 16px;
+      z-index: 1000;
+      text-align: center;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+    .sticky-cta.show { transform: translateY(0); }
+    .sticky-cta .cta-btn {
+      width: 100%;
+      font-size: 16px;
+      padding: 14px 20px;
+      animation: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-layout { flex-direction: column; gap: 28px; }
+      .hero-image-wrap { flex: none; max-width: 100%; width: 100%; }
+      .container { padding: 28px 20px 36px; }
+    }
+
+    @media (max-width: 768px) {
+      .sticky-cta { display: block; }
+      .main-headline { font-size: clamp(28px, 7vw, 40px); }
+      .hero-logo { max-width: 160px; margin-bottom: 14px; }
+      .hero-img-slot { height: auto; min-height: 200px; }
+    }
+
+    @media (max-width: 480px) {
+      .urgency-bar { font-size: 12px; padding: 8px 12px; }
+      .sub-headline { font-size: 15px; }
+      .hero-logo { max-width: 140px; }
+      .cta-btn { font-size: 16px; padding: 16px 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Urgency Bar -->
+  <div class="urgency-bar">
+    <div class="marquee-track">
+      <span class="marquee-item">🔥 Attenzione: 57 Posti Rimasti per accedere a Stress Reset System a 7 euro —</span>
+      <span class="marquee-item">🔥 Attenzione: 57 Posti Rimasti per accedere a Stress Reset System a 7 euro —</span>
+      <span class="marquee-item">🔥 Attenzione: 57 Posti Rimasti per accedere a Stress Reset System a 7 euro —</span>
+      <span class="marquee-item">🔥 Attenzione: 57 Posti Rimasti per accedere a Stress Reset System a 7 euro —</span>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero-layout">
+      <!-- Text Column -->
+      <div class="hero-text">
+        <!-- Logo ICMD -->
+        <img src="images/icmdlogo1.png" alt="Io Creo Il Mio Destino" class="hero-logo fade-in">
+
+        <div class="symptoms-line fade-in">
+          Perdita di capelli, Pressione Alta, Nebbia Mentale, Voglia di dolci…
+        </div>
+
+        <h1 class="main-headline fade-in">Non lasciare che lo <span class="hl-stress">Stress</span> ti <span class="hl-danger">Uccida Lentamente</span></h1>
+
+        <p class="sub-headline fade-in">
+          <em><span class="highlight-method">Coerenza Cardiaca</span>: il Rituale di 6 minuti degli Atleti Olimpionici e dei piloti dell'aeronautica Militare per <strong>trasformare lo stress in Lucidità mentale e Calma istantanea</strong></em>
+        </p>
+
+        <ul class="benefits-list fade-in">
+          <li><svg class="check-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#00D26A"/><path d="M6 10.5l2.5 2.5 5.5-5.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Bastano 6 minuti al giorno;</li>
+          <li><svg class="check-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#00D26A"/><path d="M6 10.5l2.5 2.5 5.5-5.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Spegne la produzione di cortisolo calmando il cuore;</li>
+          <li><svg class="check-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#00D26A"/><path d="M6 10.5l2.5 2.5 5.5-5.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Riduce la voglia di sigarette e cibo Spazzatura;</li>
+          <li><svg class="check-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#00D26A"/><path d="M6 10.5l2.5 2.5 5.5-5.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Migliora la qualità del sonno dell'87%;</li>
+          <li><svg class="check-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#00D26A"/><path d="M6 10.5l2.5 2.5 5.5-5.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Non richiede esperienza nella meditazione;</li>
+          <li><svg class="check-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#00D26A"/><path d="M6 10.5l2.5 2.5 5.5-5.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Dona Lucidità ed Energia senza caffè;</li>
+        </ul>
+
+        <div class="cta-wrap fade-in">
+          <a href="https://leonardoleone.thrivecart.com/stress-reset-system/" target="_blank" rel="noopener" class="cta-btn">Ottieni il 75% di sconto sul programma</a>
+          <div class="cta-sub">
+            <strong>57 Posti Rimasti</strong> per accedere a Stress Reset System a 7 euro<br>
+            Garanzia soddisfatto o rimborsato di 120 giorni
+          </div>
+          <img src="images/pay2.png" alt="Metodi di pagamento accettati" class="pay-img" onerror="this.style.display='none'">
+        </div>
+      </div>
+
+      <!-- Image Column -->
+      <div class="hero-image-wrap fade-in">
+        <div class="img-slot hero-img-slot">
+          <img src="images/hero-visual.png" alt="Stress Reset System — Mockup App" onerror="this.style.display='none'">
+          <span class="placeholder-text">HERO VISUAL</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- Sticky Mobile CTA -->
+  <div class="sticky-cta" id="stickyCta">
+    <a href="https://leonardoleone.thrivecart.com/stress-reset-system/" target="_blank" rel="noopener" class="cta-btn">Accedi ora a Stress Reset System</a>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Fade-in with stagger
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      var fadeEls = document.querySelectorAll('.fade-in');
+      fadeEls.forEach(function(el, i) {
+        el.style.transitionDelay = (i * 0.08) + 's';
+        observer.observe(el);
+      });
+
+      // Sticky CTA on mobile
+      var sticky = document.getElementById('stickyCta');
+      if (sticky) {
+        window.addEventListener('scroll', function() {
+          if (window.scrollY > 500) {
+            sticky.classList.add('show');
+          } else {
+            sticky.classList.remove('show');
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

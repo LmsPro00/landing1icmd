@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stress Reset System — Il Bivio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      margin: 0; padding: 0;
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 400;
+      background: #0F0F24;
+      color: #FFFFFF;
+      overflow-x: hidden;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .container { max-width: 880px; margin: 0 auto; padding: 80px 24px; }
+
+    .section-title {
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 700;
+      font-size: clamp(36px, 6vw, 64px);
+      text-align: center;
+      margin-bottom: 40px;
+      line-height: 1.1;
+    }
+
+    .img-slot {
+      position: relative;
+      background: linear-gradient(135deg, #12122a, #0A0A1A);
+      border: 1px dashed rgba(255,255,255,0.1);
+      border-radius: 24px;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.2); font-size: 13px; overflow: hidden;
+    }
+    .img-slot img { width: 100%; height: 100%; object-fit: cover; border-radius: 24px; display: block; }
+    .img-slot .placeholder-text { position: absolute; pointer-events: none; }
+    .img-slot img:not([src=""]) ~ .placeholder-text { display: none; }
+
+    .bivio-img-slot { width: 100%; height: 240px; border-radius: 24px; margin-bottom: 50px; }
+
+    /* Two Roads */
+    .roads-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 50px;
+    }
+
+    .road-card {
+      border-radius: 16px;
+      padding: 36px 28px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .road-card:hover { transform: translateY(-4px); }
+
+    .road-a {
+      background: rgba(255,59,59,0.04);
+      border: 1px solid rgba(255,59,59,0.15);
+    }
+    .road-a:hover { box-shadow: 0 8px 36px rgba(255,59,59,0.1); }
+
+    .road-b {
+      background: rgba(0,210,106,0.04);
+      border: 1px solid rgba(0,210,106,0.15);
+    }
+    .road-b:hover { box-shadow: 0 8px 36px rgba(0,210,106,0.15); }
+
+    .road-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+    .road-label-icon { width: 24px; height: 24px; }
+
+    .road-a .road-label { color: #FF3B3B; }
+    .road-b .road-label { color: #00D26A; }
+
+    .road-card p { font-size: 16px; line-height: 1.8; margin-bottom: 8px; }
+    .road-card p:last-child { margin-bottom: 0; }
+    .road-a p { color: rgba(255,255,255,0.55); }
+    .road-b p { color: rgba(255,255,255,0.85); }
+
+    .positive-continuation {
+      max-width: 680px;
+      margin: 0 auto 50px;
+      text-align: center;
+    }
+    .positive-continuation p {
+      font-size: 18px;
+      line-height: 1.9;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 12px;
+    }
+    .positive-continuation p:last-child { margin-bottom: 0; }
+    .positive-continuation strong {
+      background: linear-gradient(90deg, #FFD700, #FF8C00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .positive-continuation .emotional-final {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      margin-top: 20px;
+      line-height: 1.7;
+    }
+
+    .cta-wrap { text-align: center; }
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #00D26A, #00F5A0);
+      color: #fff;
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 18px; font-weight: 700;
+      padding: 18px 44px; border-radius: 14px;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(0,210,106,0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+      animation: ctaPulse 3s ease-in-out infinite;
+      max-width: 100%;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,210,106,0.45); }
+    @keyframes ctaPulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(0,210,106,0.3); }
+      50% { box-shadow: 0 4px 28px rgba(0,210,106,0.45); }
+    }
+    .cta-sub { margin-top: 14px; font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.7; }
+    .cta-sub strong {
+      background: linear-gradient(90deg, #FFD700, #FF8C00);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+
+    .section-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); }
+
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      .roads-grid { grid-template-columns: 1fr; gap: 20px; }
+      .container { padding: 60px 20px; }
+      .road-card { padding: 28px 22px; }
+    }
+    @media (max-width: 480px) {
+      .cta-btn { font-size: 16px; padding: 16px 28px; }
+      .positive-continuation p { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2 class="section-title fade-in">Sei davanti a un bivio.</h2>
+
+    <div class="img-slot bivio-img-slot fade-in">
+      <img src="images/bivio-visual.png" alt="Bivio tra oscurità e luce — la scelta è tua" onerror="this.style.display='none'">
+      <span class="placeholder-text">BIVIO VISUAL</span>
+    </div>
+
+    <div class="roads-grid">
+      <div class="road-card road-a fade-in">
+        <div class="road-label">
+          <svg class="road-label-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#FF3B3B" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="#FF3B3B" stroke-width="2" stroke-linecap="round"/></svg>
+          STRADA A
+        </div>
+        <p>Chiudi questa pagina.</p>
+        <p>Domani ti svegli nello stesso caos.</p>
+        <p>Stessa testa che corre.</p>
+        <p>Stessa persona che non riconosci più allo specchio.</p>
+        <p>Le settimane diventano mesi.</p>
+        <p>I mesi diventano anni.</p>
+      </div>
+
+      <div class="road-card road-b fade-in">
+        <div class="road-label">
+          <svg class="road-label-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#00D26A" stroke-width="2"/><path d="M8 12.5l3 3 5-6" stroke="#00D26A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          STRADA B
+        </div>
+        <p>Clicca qui sotto.</p>
+        <p>Stasera provi il metodo dei 6 minuti.</p>
+        <p>Nel giro di pochi minuti, qualcosa cambia.</p>
+        <p>Quella stretta al petto… si allenta.</p>
+        <p>La mente che corre… rallenta.</p>
+        <p>Nel giro di una settimana, chi ti vive accanto se ne accorge: "Ti vedo più calmo." ti dice.</p>
+        <p>Dopo un mese, ti guardi allo specchio e riconosci di nuovo chi sei.</p>
+        <p class="emotional-final">La persona che eri non è mai sparita. Era solo rimasta intrappolata.</p>
+      </div>
+    </div>
+
+    <div class="cta-wrap fade-in">
+      <a href="https://leonardoleone.thrivecart.com/stress-reset-system/" target="_blank" rel="noopener" class="cta-btn">Ottieni il 75% di sconto sul programma</a>
+      <div class="cta-sub">
+        <strong>57 Posti Rimasti</strong> per accedere a Stress Reset System a 7 euro<br>
+        Garanzia soddisfatto o rimborsato di 120 giorni
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+        });
+      }, { threshold: 0.1 });
+      var els = document.querySelectorAll('.fade-in');
+      els.forEach(function(el, i) { el.style.transitionDelay = (i * 0.08) + 's'; observer.observe(el); });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stress Reset System — Testimonianze</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      margin: 0; padding: 0;
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 400;
+      background: #0A0A1A;
+      color: #FFFFFF;
+      overflow-x: hidden;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .container { max-width: 880px; margin: 0 auto; padding: 80px 24px; }
+
+    .section-title {
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 700;
+      font-size: clamp(36px, 6vw, 64px);
+      text-align: center;
+      margin-bottom: 50px;
+      line-height: 1.1;
+    }
+
+    /* Slider */
+    .slider-wrapper {
+      overflow: hidden;
+      margin: 0 -24px;
+      padding: 0 24px;
+    }
+    .slider-track {
+      display: flex;
+      gap: 24px;
+      width: max-content;
+      animation: scrollTestimonials 35s linear infinite;
+    }
+    .slider-track:hover {
+      animation-play-state: paused;
+    }
+    @keyframes scrollTestimonials {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Testimonial Card */
+    .testimonial-card {
+      min-width: 380px;
+      max-width: 380px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 20px;
+      padding: 32px 28px;
+      flex-shrink: 0;
+      transition: background 0.3s ease;
+    }
+    .testimonial-card:hover {
+      background: rgba(255,255,255,0.045);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .card-author-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .avatar-slot {
+      width: 96px;
+      height: 96px;
+      border-radius: 22px;
+      flex-shrink: 0;
+      padding: 3px;
+      background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(139,92,246,0.15), rgba(0,210,106,0.15));
+      background-size: 200% 200%;
+      animation: avatarGlow 4s ease-in-out infinite;
+      overflow: hidden;
+    }
+    @keyframes avatarGlow {
+      0% { background-position: 0% 50%; border-color: rgba(99,102,241,0.2); }
+      50% { background-position: 100% 50%; border-color: rgba(0,210,106,0.25); }
+      100% { background-position: 0% 50%; border-color: rgba(99,102,241,0.2); }
+    }
+    .avatar-slot img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 19px;
+      display: block;
+    }
+
+    .testimonial-name { font-size: 16px; font-weight: 700; color: #FFFFFF; line-height: 1.3; }
+    .testimonial-meta { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.4; }
+
+    .stars { display: flex; gap: 3px; margin-bottom: 14px; }
+    .star-icon { width: 16px; height: 16px; }
+
+    .testimonial-text {
+      font-size: 15px; line-height: 1.8;
+      color: rgba(255,255,255,0.65);
+    }
+    .testimonial-text p { margin-bottom: 10px; }
+    .testimonial-text p:last-child { margin-bottom: 0; }
+
+    .section-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); }
+
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      .container { padding: 60px 20px; }
+      .slider-wrapper { margin: 0 -20px; padding: 0 20px; }
+      .testimonial-card { min-width: 300px; max-width: 300px; padding: 28px 22px; }
+      .avatar-slot { width: 76px; height: 76px; border-radius: 18px; }
+      .avatar-slot img { border-radius: 15px; }
+    }
+    @media (max-width: 480px) {
+      .card-header { gap: 12px; }
+      .avatar-slot { width: 68px; height: 68px; border-radius: 16px; }
+      .avatar-slot img { border-radius: 13px; }
+      .testimonial-name { font-size: 15px; }
+      .testimonial-text { font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2 class="section-title fade-in">Ecco alcune Testimonianze sul Programma</h2>
+
+    <div class="slider-wrapper fade-in">
+      <div class="slider-track">
+
+        <!-- === SET 1 === -->
+        <div class="testimonial-card">
+          <div class="card-header">
+            <div class="avatar-slot">
+              <img src="images/testimonial-giulia.png" alt="Giulia M." onerror="this.style.display='none'">
+            </div>
+            <div class="card-author-info">
+              <div class="testimonial-name">Giulia M., 52 anni</div>
+              <div class="testimonial-meta">Mamma lavoratrice, 3 figli · 3 settimane fa</div>
+            </div>
+          </div>
+          <div class="stars">
+            <svg class="star-icon" viewBox="0 0 18 18" fill="none"><path d="M9 1l2.2 4.5 5 .7-3.6 3.5.8 5L9 12.5 4.6 14.7l.8-5L1.8 6.2l5-.7L9 1z" fill="#FFD700"/></svg>
+            <svg class="star-icon" viewBox="0 0 18 18" fill="none"><path d="M9 1l2.2 4.5 5 .7-3.6 3.5.8 5L9 12.5 4.6 14.7l.8-5L1.8 6.2l5-.7L9 1z" fill="#FFD700"/></svg>
+            <svg class="star-icon" viewBox="0 0 18 18" fill="none"><path d="M9 1l2.2 4.5 5 .7-3.6 3.5.8 5L9 12.5 4.6 14.7l.8-5L1.8 6.2l5-.7L9 1z" fill="#FFD700"/></svg>
+            <svg class="star-icon" viewBox="0 0 18 18" fill="none"><path d="M9 1l2.2 4.5 5 .7-3.6 3.5.8 5L9 12.5 4.6 14.7l.8-5L1.8 6.2l5-.7L9 1z" fill="#FFD700"/></svg>
+            <svg class="star-icon" viewBox="0 0 18 18" fill="none"><path d="M9 1l2.2 4.5 5 .7-3.6 3.5.8 5L9 12.5 4.6 14.7l.8-5L1.8 6.2l5-.7L9 1z" fill="#FFD700"/></svg>
+          </div>
+          <div class="testimonial-text">
+            <p>«Mancavano due settimane prima che chiedessi al medico dei farmaci per l'ansia.</p>
+            <p>Non dormivo, non riuscivo a concentrarmi e scattavo continuamente con i miei figli. Un giorno mio marito mi ha detto: "Prima eri più solare".</p>
+            <p>Sono scoppiata a piangere, perché aveva ragione.</p>
+            <p>Ho provato il metodo dei 6 minuti pensando: "Sì vabbè, figurati se funziona". Invece mi sono sentita diversa subito. Quella sensazione di peso al petto si è sciolta all'improvviso.</p>
+            <p>Non mi ero resa conto di quanto mi mancassi… finché non sono tornata.»</p>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="card-header">
+            <div class="avatar-slot">
+              <img src="images/testimonial-marco.png" alt="Marco R." onerror="this.style.display='none'">
+            </div>
+            <div class="card-author-info">
+              <div class="testimonial-name">Marco R., 48 anni</div>
+              <div class="testimonial-meta">Imprenditore · 2 settimane fa</div>
+            </div>
+          </div>
+          <div class="stars">
+            <svg class="star-icon" viewBox="0 0 18 18" fill="none"><path d="M9 1l2.2 4.5 5 .7-3.6 3.5.8 5L9 12.5 4.6 14.7l.8-5L1.8 6.2l5-.7L9 1z" fill="#FFD700"/></svg>
+            <svg class="star-icon" viewBox="0 0 18 18" fill="none"><path d="M9 1l2.2 4.5 5 .7-3.6 3.5.8 5L9 12.5 4.6 14.7l.8-5L1.8 6.2l5-.7L9 1z" fill="#FFD700"/></svg>
+            <svg class="star-icon" viewBox="0 0 18 18" fill="none"><path d="M9 1l2.2 4.5 5 .7-3.6 3.5.8 5L9 12.5 4.6 14.7l.8-5L1.8 6.2l5-.7L9 1z" fill="#FFD700"/></svg>
+            <svg class="star-icon" viewBox="0 0 18 18" fill="none"><path d="M9 1l2.2 4.5 5 .7-3.6 3.5.8 5L9 12.5 4.6 14.7l.8-5L1.8 6.2l5-.7L9 1z" fill="#FFD700"/></svg>
+            <svg class="star-icon" viewBox="0 0 18 18" fill="none"><path d="M9 1l2.2 4.5 5 .7-3.6 3.5.8 5L9 12.5 4.6 14.7l.8-5L1.8 6.2l5-.7L9 1z" fill="#FFD700"/></svg>
+          </div>
+          <div class="testimonial-text">
+            <p>«Avevo quello che pensavo fosse un problema al cuore.<br>
+            Palpitazioni continue. Sono andato dal medico: ansia.</p>
+            <p>Mi ha dato delle pastiglie che mi facevano sentire spento, come uno zombie.<br>
+            Così non potevo mandare avanti la mia azienda.</p>
+            <p>Quando ho scoperto questo metodo mi è sembrato troppo semplice per funzionare. Ma ero disperato. Ho fatto la sessione da 6 minuti prima di una riunione importantissima con un cliente. Sono entrato calmo. Lucido.</p>
+            <p>Ho chiuso un contratto da 50.000 euro. Il mio socio mi ha chiesto cosa fosse cambiato. In quel momento ho capito una cosa:</p>
+            <p>per la prima volta dopo mesi, non stavo più vivendo nel panico.<br>
+            Stavo pensando con chiarezza.»</p>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="card-header">
+            <div class="avatar-slot">
+              <img src="images/testimonial-laura.png" alt="Laura T." onerror="this.style.display='none'">
+            </div>
+            <div class="card-author-info">
+              <div class="testimonial-name">Laura T., 47 anni</div>
+              <div class="testimonial-meta">Figlia caregiver e madre · 1 settimana fa</div>
+            </div>
+          </div>
+          <div class="stars">
+            <svg class="star-icon" viewBox="0 0 18 18" fill="none"><path d="M9 1l2.2 4.5 5 .7-3.6 3.5.8 5L9 12.5 4.6 14.7l.8-5L1.8 6.2l5-.7L9 1z" fill="#FFD700"/></svg>
+            <svg class="star-icon" viewBox="0 0 18 18" fill="none"><path d="M9 1l2.2 4.5 5 .7-3.6 3.5.8 5L9 12.5 4.6 14.7l.8-5L1.8 6.2l5-.7L9 1z" fill="#FFD700"/></svg>
+            <svg class="star-icon" viewBox="0 0 18 18" fill="none"><path d="M9 1l2.2 4.5 5 .7-3.6 3.5.8 5L9 12.5 4.6 14.7l.8-5L1.8 6.2l5-.7L9 1z" fill="#FFD700"/></svg>
+            <svg class="star-icon" viewBox="0 0 18 18" fill="none"><path d="M9 1l2.2 4.5 5 .7-3.6 3.5.8 5L9 12.5 4.6 14.7l.8-5L1.8 6.2l5-.7L9 1z" fill="#FFD700"/></svg>
+            <svg class="star-icon" viewBox="0 0 18 18" fill="none"><path d="M9 1l2.2 4.5 5 .7-3.6 3.5.8 5L9 12.5 4.6 14.7l.8-5L1.8 6.2l5-.7L9 1z" fill="#FFD700"/></svg>
+          </div>
+          <div class="testimonial-text">
+            <p>«Mi prendevo cura di mia madre anziana, crescevo due adolescenti e lavoravo a tempo pieno. Ero costantemente sul punto di scoppiare.</p>
+            <p>Avevo una nebbia mentale assurda: entravo in una stanza e dimenticavo perché. Ho messo il telefono nel frigorifero due volte. Pensavo seriamente di stare perdendo la testa. Questo metodo mi ha riportata indietro dal limite.</p>
+            <p>La prima volta che l'ho fatto ho sentito fisicamente lo stress uscire dal corpo.</p>
+            <p>È stato come se qualcuno avesse spento un allarme di emergenza che suonava nella mia testa da anni. I miei figli hanno smesso di camminare sulle uova intorno a me. Lì ho capito che funzionava davvero.»</p>
+          </div>
+        </div>
+
+        <!-- === SET 2 (duplicate for infinite loop) === -->
+        <div class="testimonial-card">
+          <div class="card-header">
+            <div class="avatar-slot">
+              <img src="images/testimonial-giulia.png" alt="Giulia M." onerror="this.style.display='none'">
+            </div>
+            <div class="card-author-info">
+              <div class="testimonial-name">Giulia M., 52 anni</div>
+              <div class="testimonial-meta">Mamma lavoratrice, 3 figli · 3 settimane fa</div>
+            </div>
+          </div>
+          <div class="stars">
+            <svg class="star-icon" viewBox="0 0 18 18" fill="none"><path d="M9 1l2.2 4.5 5 .7-3.6 3.5.8 5L9 12.5 4.6 14.7l.8-5L1.8 6.2l5-.7L9 1z" fill="#FFD700"/></svg>
+            <svg class="star-icon" viewBox="0 0 18 18" fill="none"><path d="M9 1l2.2 4.5 5 .7-3.6 3.5.8 5L9 12.5 4.6 14.7l.8-5L1.8 6.2l5-.7L9 1z" fill="#FFD700"/></svg>
+            <svg class="star-icon" viewBox="0 0 18 18" fill="none"><path d="M9 1l2.2 4.5 5 .7-3.6 3.5.8 5L9 12.5 4.6 14.7l.8-5L1.8 6.2l5-.7L9 1z" fill="#FFD700"/></svg>
+            <svg class="star-icon" viewBox="0 0 18 18" fill="none"><path d="M9 1l2.2 4.5 5 .7-3.6 3.5.8 5L9 12.5 4.6 14.7l.8-5L1.8 6.2l5-.7L9 1z" fill="#FFD700"/></svg>
+            <svg class="star-icon" viewBox="0 0 18 18" fill="none"><path d="M9 1l2.2 4.5 5 .7-3.6 3.5.8 5L9 12.5 4.6 14.7l.8-5L1.8 6.2l5-.7L9 1z" fill="#FFD700"/></svg>
+          </div>
+          <div class="testimonial-text">
+            <p>«Mancavano due settimane prima che chiedessi al medico dei farmaci per l'ansia.</p>
+            <p>Non dormivo, non riuscivo a concentrarmi e scattavo continuamente con i miei figli. Un giorno mio marito mi ha detto: "Prima eri più solare".</p>
+            <p>Sono scoppiata a piangere, perché aveva ragione.</p>
+            <p>Ho provato il metodo dei 6 minuti pensando: "Sì vabbè, figurati se funziona". Invece mi sono sentita diversa subito. Quella sensazione di peso al petto si è sciolta all'improvviso.</p>
+            <p>Non mi ero resa conto di quanto mi mancassi… finché non sono tornata.»</p>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="card-header">
+            <div class="avatar-slot">
+              <img src="images/testimonial-marco.png" alt="Marco R." onerror="this.style.display='none'">
+            </div>
+            <div class="card-author-info">
+              <div class="testimonial-name">Marco R., 48 anni</div>
+              <div class="testimonial-meta">Imprenditore · 2 settimane fa</div>
+            </div>
+          </div>
+          <div class="stars">
+            <svg class="star-icon" viewBox="0 0 18 18" fill="none"><path d="M9 1l2.2 4.5 5 .7-3.6 3.5.8 5L9 12.5 4.6 14.7l.8-5L1.8 6.2l5-.7L9 1z" fill="#FFD700"/></svg>
+            <svg class="star-icon" viewBox="0 0 18 18" fill="none"><path d="M9 1l2.2 4.5 5 .7-3.6 3.5.8 5L9 12.5 4.6 14.7l.8-5L1.8 6.2l5-.7L9 1z" fill="#FFD700"/></svg>
+            <svg class="star-icon" viewBox="0 0 18 18" fill="none"><path d="M9 1l2.2 4.5 5 .7-3.6 3.5.8 5L9 12.5 4.6 14.7l.8-5L1.8 6.2l5-.7L9 1z" fill="#FFD700"/></svg>
+            <svg class="star-icon" viewBox="0 0 18 18" fill="none"><path d="M9 1l2.2 4.5 5 .7-3.6 3.5.8 5L9 12.5 4.6 14.7l.8-5L1.8 6.2l5-.7L9 1z" fill="#FFD700"/></svg>
+            <svg class="star-icon" viewBox="0 0 18 18" fill="none"><path d="M9 1l2.2 4.5 5 .7-3.6 3.5.8 5L9 12.5 4.6 14.7l.8-5L1.8 6.2l5-.7L9 1z" fill="#FFD700"/></svg>
+          </div>
+          <div class="testimonial-text">
+            <p>«Avevo quello che pensavo fosse un problema al cuore.<br>
+            Palpitazioni continue. Sono andato dal medico: ansia.</p>
+            <p>Mi ha dato delle pastiglie che mi facevano sentire spento, come uno zombie.<br>
+            Così non potevo mandare avanti la mia azienda.</p>
+            <p>Quando ho scoperto questo metodo mi è sembrato troppo semplice per funzionare. Ma ero disperato. Ho fatto la sessione da 6 minuti prima di una riunione importantissima con un cliente. Sono entrato calmo. Lucido.</p>
+            <p>Ho chiuso un contratto da 50.000 euro. Il mio socio mi ha chiesto cosa fosse cambiato. In quel momento ho capito una cosa:</p>
+            <p>per la prima volta dopo mesi, non stavo più vivendo nel panico.<br>
+            Stavo pensando con chiarezza.»</p>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="card-header">
+            <div class="avatar-slot">
+              <img src="images/testimonial-laura.png" alt="Laura T." onerror="this.style.display='none'">
+            </div>
+            <div class="card-author-info">
+              <div class="testimonial-name">Laura T., 47 anni</div>
+              <div class="testimonial-meta">Figlia caregiver e madre · 1 settimana fa</div>
+            </div>
+          </div>
+          <div class="stars">
+            <svg class="star-icon" viewBox="0 0 18 18" fill="none"><path d="M9 1l2.2 4.5 5 .7-3.6 3.5.8 5L9 12.5 4.6 14.7l.8-5L1.8 6.2l5-.7L9 1z" fill="#FFD700"/></svg>
+            <svg class="star-icon" viewBox="0 0 18 18" fill="none"><path d="M9 1l2.2 4.5 5 .7-3.6 3.5.8 5L9 12.5 4.6 14.7l.8-5L1.8 6.2l5-.7L9 1z" fill="#FFD700"/></svg>
+            <svg class="star-icon" viewBox="0 0 18 18" fill="none"><path d="M9 1l2.2 4.5 5 .7-3.6 3.5.8 5L9 12.5 4.6 14.7l.8-5L1.8 6.2l5-.7L9 1z" fill="#FFD700"/></svg>
+            <svg class="star-icon" viewBox="0 0 18 18" fill="none"><path d="M9 1l2.2 4.5 5 .7-3.6 3.5.8 5L9 12.5 4.6 14.7l.8-5L1.8 6.2l5-.7L9 1z" fill="#FFD700"/></svg>
+            <svg class="star-icon" viewBox="0 0 18 18" fill="none"><path d="M9 1l2.2 4.5 5 .7-3.6 3.5.8 5L9 12.5 4.6 14.7l.8-5L1.8 6.2l5-.7L9 1z" fill="#FFD700"/></svg>
+          </div>
+          <div class="testimonial-text">
+            <p>«Mi prendevo cura di mia madre anziana, crescevo due adolescenti e lavoravo a tempo pieno. Ero costantemente sul punto di scoppiare.</p>
+            <p>Avevo una nebbia mentale assurda: entravo in una stanza e dimenticavo perché. Ho messo il telefono nel frigorifero due volte. Pensavo seriamente di stare perdendo la testa. Questo metodo mi ha riportata indietro dal limite.</p>
+            <p>La prima volta che l'ho fatto ho sentito fisicamente lo stress uscire dal corpo.</p>
+            <p>È stato come se qualcuno avesse spento un allarme di emergenza che suonava nella mia testa da anni. I miei figli hanno smesso di camminare sulle uova intorno a me. Lì ho capito che funzionava davvero.»</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+        });
+      }, { threshold: 0.1 });
+      var els = document.querySelectorAll('.fade-in');
+      els.forEach(function(el, i) {
+        el.style.transitionDelay = (i * 0.08) + 's';
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>

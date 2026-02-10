@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stress Reset System — Urgenza Prezzo</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      margin: 0; padding: 0;
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 400;
+      background: #0A0A1A;
+      color: #FFFFFF;
+      overflow-x: hidden;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .container { max-width: 880px; margin: 0 auto; padding: 80px 24px; }
+
+    .section-title {
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 700;
+      font-size: clamp(32px, 5.5vw, 56px);
+      text-align: center;
+      margin-bottom: 40px;
+      line-height: 1.1;
+      color: #FF3B3B;
+    }
+
+    /* Warning Box */
+    .warning-box {
+      position: relative;
+      background: rgba(255,59,59,0.04);
+      border: 1px solid rgba(255,59,59,0.15);
+      border-radius: 20px;
+      padding: 44px 40px;
+      max-width: 700px;
+      margin: 0 auto 50px;
+      overflow: hidden;
+    }
+    .warning-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #FF3B3B, #ff6b6b, #FF3B3B);
+    }
+
+    .warning-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,59,59,0.1);
+      border: 1px solid rgba(255,59,59,0.25);
+      color: #FF3B3B;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 16px;
+      border-radius: 50px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .warning-label-icon { width: 14px; height: 14px; }
+
+    .warning-box p {
+      font-size: 17px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 16px;
+    }
+    .warning-box p:last-child { margin-bottom: 0; }
+    .warning-box strong { color: #FFFFFF; }
+
+    .price-after {
+      list-style: none;
+      margin: 18px 0;
+      padding: 18px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .price-after li {
+      padding: 5px 0;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255,255,255,0.65);
+    }
+    .price-arrow { width: 14px; height: 14px; flex-shrink: 0; }
+
+    .total-after {
+      font-size: 20px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.4);
+      margin-top: 18px;
+    }
+
+    .price-now-line {
+      font-size: 22px;
+      font-weight: 700;
+      margin-top: 10px;
+      background: linear-gradient(90deg, #FFD700, #FF8C00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .lock-price {
+      font-size: 15px;
+      color: rgba(255,255,255,0.5);
+      margin-top: 20px;
+      font-style: italic;
+    }
+
+    .cta-wrap { text-align: center; }
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #00D26A, #00F5A0);
+      color: #fff;
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 18px; font-weight: 700;
+      padding: 18px 44px; border-radius: 14px;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(0,210,106,0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+      animation: ctaPulse 3s ease-in-out infinite;
+      max-width: 100%;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,210,106,0.45); }
+    @keyframes ctaPulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(0,210,106,0.3); }
+      50% { box-shadow: 0 4px 28px rgba(0,210,106,0.45); }
+    }
+    .cta-sub { margin-top: 14px; font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.7; }
+    .cta-sub strong {
+      background: linear-gradient(90deg, #FFD700, #FF8C00);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+
+    .section-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); }
+
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      .container { padding: 60px 20px; }
+      .warning-box { padding: 32px 24px; }
+    }
+    @media (max-width: 480px) {
+      .cta-btn { font-size: 16px; padding: 16px 28px; }
+      .price-now-line { font-size: 19px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2 class="section-title fade-in">ATTENZIONE: Non possiamo tenere questo prezzo ancora per molto</h2>
+
+    <div class="warning-box fade-in">
+      <div class="warning-label">
+        <svg class="warning-label-icon" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="#FF3B3B" stroke-width="1.5"/><path d="M7 4v3.5M7 9.5v.5" stroke="#FF3B3B" stroke-width="1.5" stroke-linecap="round"/></svg>
+        Avviso importante
+      </div>
+
+      <p>Il prezzo di 7 € non è sostenibile.<br>
+      Lo stiamo offrendo solo al lancio, per un motivo preciso:<br>
+      far provare questo sistema al maggior numero di persone possibile.</p>
+
+      <p><strong>Dopo il lancio:</strong></p>
+
+      <ul class="price-after">
+        <li><svg class="price-arrow" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="#FF3B3B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> il programma tornerà a 97 €</li>
+        <li><svg class="price-arrow" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="#FF3B3B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> l'audio verrà venduto separatamente a 47 €</li>
+        <li><svg class="price-arrow" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="#FF3B3B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> l'organizzatore verrà venduto separatamente a 37 €</li>
+      </ul>
+
+      <div class="total-after">Totale: 181 €.</div>
+      <div class="price-now-line">Oppure puoi avere tutto adesso a soli 7 €.</div>
+
+      <p class="lock-price">Blocca il prezzo di lancio finché questa pagina è online.</p>
+    </div>
+
+    <div class="cta-wrap fade-in">
+      <a href="https://leonardoleone.thrivecart.com/stress-reset-system/" target="_blank" rel="noopener" class="cta-btn">Ottieni il 75% di sconto sul programma</a>
+      <div class="cta-sub">
+        <strong>57 Posti Rimasti</strong> per accedere a Stress Reset System a 7 euro<br>
+        Garanzia soddisfatto o rimborsato di 120 giorni
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+        });
+      }, { threshold: 0.1 });
+      var els = document.querySelectorAll('.fade-in');
+      els.forEach(function(el, i) { el.style.transitionDelay = (i * 0.08) + 's'; observer.observe(el); });
+    });
+  </script>
+</body>
+</html>

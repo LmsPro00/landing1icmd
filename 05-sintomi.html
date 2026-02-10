@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stress Reset System — Sintomi</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      margin: 0; padding: 0;
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 400;
+      background: #0A0A1A;
+      color: #FFFFFF;
+      overflow-x: hidden;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+
+    .section-title {
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 700;
+      font-size: clamp(36px, 6vw, 64px);
+      text-align: center;
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 18px;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 40px;
+    }
+
+    .img-slot {
+      position: relative;
+      background: linear-gradient(135deg, #12122a, #0A0A1A);
+      border: 1px dashed rgba(255,255,255,0.1);
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.2);
+      font-size: 13px;
+      overflow: hidden;
+    }
+    .img-slot img { width: 100%; height: 100%; object-fit: cover; border-radius: 24px; display: block; }
+    .img-slot .placeholder-text { position: absolute; pointer-events: none; }
+    .img-slot img:not([src=""]) ~ .placeholder-text { display: none; }
+
+    .stress-img-slot {
+      width: 100%;
+      height: 280px;
+      border-radius: 24px;
+      margin-bottom: 50px;
+    }
+
+    .hl-danger {
+      color: #FF3B3B;
+    }
+
+    /* Symptoms Grid */
+    .symptoms-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+      margin-bottom: 40px;
+    }
+
+    .symptom-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 16px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.75);
+      padding: 14px 18px;
+      border-radius: 16px;
+      background: rgba(255,59,59,0.04);
+      border: 1px solid rgba(255,59,59,0.15);
+      transition: background 0.2s, box-shadow 0.3s;
+    }
+    .symptom-item:hover {
+      background: rgba(255,59,59,0.08);
+      box-shadow: 0 4px 20px rgba(255,59,59,0.08);
+    }
+
+    .symptom-icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    /* Divider */
+    .divider {
+      text-align: center;
+      margin: 40px 0;
+      position: relative;
+    }
+    .divider::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    }
+    .divider-text {
+      background: #0A0A1A;
+      padding: 0 24px;
+      position: relative;
+      font-size: 17px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* Warning Box */
+    .warning-box {
+      background: rgba(255,59,59,0.06);
+      border: 1px solid rgba(255,59,59,0.2);
+      border-left: 3px solid #FF3B3B;
+      border-radius: 16px;
+      padding: 32px 28px;
+      margin-top: 50px;
+    }
+
+    .warning-box p {
+      margin-bottom: 14px;
+      font-size: 17px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.8);
+    }
+    .warning-box p:last-child { margin-bottom: 0; }
+
+    .warning-box strong {
+      color: #FF3B3B;
+      font-size: 19px;
+    }
+
+    .warning-box .consequences {
+      list-style: none;
+      margin-top: 12px;
+    }
+    .warning-box .consequences li {
+      padding: 5px 0;
+      font-size: 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: rgba(255,255,255,0.75);
+    }
+    .consequence-icon {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      .symptoms-grid { grid-template-columns: 1fr; gap: 8px; }
+      .container { padding: 60px 20px; }
+      .warning-box { padding: 24px 20px; }
+    }
+
+    @media (max-width: 480px) {
+      .symptom-item { font-size: 15px; padding: 8px 12px; }
+      .warning-box strong { font-size: 17px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2 class="section-title fade-in">Il tuo corpo ti sta urlando che c'è <span class="hl-danger">qualcosa che non va</span></h2>
+    <p class="section-subtitle fade-in">Quante di queste cose ti sono capitate negli ultimi mesi?</p>
+
+    <div class="img-slot stress-img-slot fade-in">
+      <img src="images/stress-sintomi.jpg" alt="Persona sopraffatta ed esausta dallo stress" onerror="this.style.display='none'">
+      <span class="placeholder-text">STRESS SINTOMI</span>
+    </div>
+
+    <!-- Mental Symptoms -->
+    <div class="symptoms-grid fade-in">
+      <div class="symptom-item">
+        <svg class="symptom-icon" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="#FF3B3B" stroke-width="1.2" opacity="0.6"/><path d="M9 6v4M9 12h.01" stroke="#FF3B3B" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span>Entri in una stanza e ti dimentichi completamente perché ci sei andato</span>
+      </div>
+      <div class="symptom-item">
+        <svg class="symptom-icon" viewBox="0 0 18 18" fill="none"><path d="M4 5h10M4 9h7M4 13h10" stroke="#FF3B3B" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/></svg>
+        <span>Leggi la stessa frase tre volte e non riesci comunque a capirla</span>
+      </div>
+      <div class="symptom-item">
+        <svg class="symptom-icon" viewBox="0 0 18 18" fill="none"><path d="M9 3a6 6 0 1 0 0 12 6 6 0 0 0 0-12z" stroke="#FF3B3B" stroke-width="1.2" opacity="0.6"/><path d="M6 8c0 0 1.5 2 3 2s3-2 3-2" stroke="#FF3B3B" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/></svg>
+        <span>Perdi il filo del discorso mentre stai parlando, con le persone che ti guardano aspettando</span>
+      </div>
+      <div class="symptom-item">
+        <svg class="symptom-icon" viewBox="0 0 18 18" fill="none"><path d="M6 4C6 4 5 9 9 9s3-5 3-5" stroke="#FF3B3B" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/><path d="M4 12c2-1 4-1 5 0s3 1 5 0" stroke="#FF3B3B" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/></svg>
+        <span>Quel fastidioso tremolio alla palpebra che non passa mai…</span>
+      </div>
+      <div class="symptom-item">
+        <svg class="symptom-icon" viewBox="0 0 18 18" fill="none"><path d="M3 14h12M5 10h8M7 6h4" stroke="#FF3B3B" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/></svg>
+        <span>Ti senti stanco anche dopo aver dormito 8 ore o più…</span>
+      </div>
+      <div class="symptom-item">
+        <svg class="symptom-icon" viewBox="0 0 18 18" fill="none"><path d="M9 2v3M9 13v3M2 9h3M13 9h3" stroke="#FF3B3B" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/><circle cx="9" cy="9" r="3" stroke="#FF3B3B" stroke-width="1.2" opacity="0.6"/></svg>
+        <span>Sei esausto ma agitato: il tuo corpo non ti lascia riposare nemmeno quando sei a terra…</span>
+      </div>
+    </div>
+
+    <div class="divider fade-in">
+      <span class="divider-text">E poi ci sono i cambiamenti fisici che vedi allo specchio:</span>
+    </div>
+
+    <!-- Physical Symptoms -->
+    <div class="symptoms-grid fade-in">
+      <div class="symptom-item">
+        <svg class="symptom-icon" viewBox="0 0 18 18" fill="none"><path d="M9 3v6l3 3" stroke="#FF3B3B" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/><circle cx="9" cy="9" r="7" stroke="#FF3B3B" stroke-width="1.2" opacity="0.6"/></svg>
+        <span>Capelli più sottili o che cadono sotto la doccia</span>
+      </div>
+      <div class="symptom-item">
+        <svg class="symptom-icon" viewBox="0 0 18 18" fill="none"><path d="M5 13c1-3 3-5 4-8M10 13c1-3 2-5 3-8" stroke="#FF3B3B" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/></svg>
+        <span>Rughe nuove che sembrano spuntare da un giorno all'altro</span>
+      </div>
+      <div class="symptom-item">
+        <svg class="symptom-icon" viewBox="0 0 18 18" fill="none"><ellipse cx="9" cy="10" rx="5" ry="4" stroke="#FF3B3B" stroke-width="1.2" opacity="0.6"/><path d="M7 6h4" stroke="#FF3B3B" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/></svg>
+        <span>Pancia gonfia anche se mangi meno di prima</span>
+      </div>
+      <div class="symptom-item">
+        <svg class="symptom-icon" viewBox="0 0 18 18" fill="none"><path d="M6 3v12M12 3v12M4 7h10M4 11h10" stroke="#FF3B3B" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/></svg>
+        <span>I vestiti ti stanno più stretti, anche se il peso non è cambiato</span>
+      </div>
+      <div class="symptom-item">
+        <svg class="symptom-icon" viewBox="0 0 18 18" fill="none"><path d="M4 14c2-2 4-6 5-10M9 14c2-2 4-6 5-10" stroke="#FF3B3B" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/></svg>
+        <span>Caviglie e gambe più pesanti, come se la circolazione fosse rallentata</span>
+      </div>
+      <div class="symptom-item">
+        <svg class="symptom-icon" viewBox="0 0 18 18" fill="none"><path d="M9 3C6 3 4 6 4 8c0 3 5 7 5 7s5-4 5-7c0-2-2-5-5-5z" stroke="#FF3B3B" stroke-width="1.2" opacity="0.6"/></svg>
+        <span>Voglia continua di dolci (e poi ti senti in colpa)</span>
+      </div>
+      <div class="symptom-item">
+        <svg class="symptom-icon" viewBox="0 0 18 18" fill="none"><path d="M4 9h10M7 6l-3 3 3 3M11 6l3 3-3 3" stroke="#FF3B3B" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/></svg>
+        <span>Attacchi di fame nervosa che non riesci a controllare</span>
+      </div>
+    </div>
+
+    <!-- Warning Box -->
+    <div class="warning-box fade-in">
+      <img src="images/stress-loop-alt.png" alt="Sistema nervoso bloccato" style="width:100%;max-width:280px;display:block;margin:0 auto 20px;border-radius:12px;opacity:0.85;" onerror="this.style.display='none'">
+      <p>Se riconosci anche solo la metà di questi segnali…<br>
+      Il problema non è che sei "un po' stressato".</p>
+
+      <p><strong>Il tuo sistema nervoso è bloccato in modalità emergenza.</strong></p>
+
+      <p>E questo sta letteralmente:</p>
+      <ul class="consequences">
+        <li><svg class="consequence-icon" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 6l4 4-4 4" stroke="#FF3B3B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> accelerando l'invecchiamento del tuo corpo</li>
+        <li><svg class="consequence-icon" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 6l4 4-4 4" stroke="#FF3B3B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> peggiorando le tue capacità mentali</li>
+        <li><svg class="consequence-icon" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 6l4 4-4 4" stroke="#FF3B3B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> rendendoti una persona diversa, meno presente, meno lucida.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+        });
+      }, { threshold: 0.1 });
+      var els = document.querySelectorAll('.fade-in');
+      els.forEach(function(el, i) {
+        el.style.transitionDelay = (i * 0.08) + 's';
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>

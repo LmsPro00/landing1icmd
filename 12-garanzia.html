@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stress Reset System — Garanzia</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      margin: 0; padding: 0;
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 400;
+      background: #0F0F24;
+      color: #FFFFFF;
+      overflow-x: hidden;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .container { max-width: 880px; margin: 0 auto; padding: 80px 24px; }
+
+    .section-title {
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 700;
+      font-size: clamp(36px, 6vw, 64px);
+      text-align: center;
+      margin-bottom: 40px;
+      line-height: 1.1;
+    }
+
+    /* SVG Shield */
+    .shield-wrap { text-align: center; margin-bottom: 40px; }
+    .shield-svg { width: 100px; height: 120px; filter: drop-shadow(0 4px 20px rgba(0,210,106,0.25)); }
+
+    /* Guarantee Card */
+    .guarantee-card {
+      position: relative;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 20px;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 48px 40px;
+      overflow: hidden;
+    }
+    .guarantee-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(0,210,106,0.3), rgba(0,245,160,0.05));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .guarantee-content {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .guarantee-content p {
+      font-size: 17px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 16px;
+    }
+    .guarantee-content p:last-child { margin-bottom: 0; }
+    .guarantee-content strong { color: #00D26A; }
+    .guarantee-content .bold-white { color: #fff; font-weight: 700; }
+
+    .guarantee-list {
+      list-style: none;
+      text-align: left;
+      display: inline-block;
+      margin: 10px 0 18px;
+    }
+    .guarantee-list li {
+      padding: 4px 0;
+      font-size: 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: rgba(255,255,255,0.75);
+    }
+    .list-arrow { width: 14px; height: 14px; flex-shrink: 0; margin-top: 4px; }
+
+    .promise-box {
+      background: rgba(0,210,106,0.04);
+      border: 1px solid rgba(0,210,106,0.15);
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin: 24px 0;
+    }
+
+    .no-risk { font-size: 14px; color: rgba(255,255,255,0.4); margin-top: 8px; }
+
+    .bold-statement {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      margin-top: 24px;
+      line-height: 1.6;
+    }
+
+    .cta-wrap { text-align: center; margin-top: 50px; }
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #00D26A, #00F5A0);
+      color: #fff;
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 18px; font-weight: 700;
+      padding: 18px 44px; border-radius: 14px;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(0,210,106,0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+      animation: ctaPulse 3s ease-in-out infinite;
+      max-width: 100%;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,210,106,0.45); }
+    @keyframes ctaPulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(0,210,106,0.3); }
+      50% { box-shadow: 0 4px 28px rgba(0,210,106,0.45); }
+    }
+    .cta-sub { margin-top: 14px; font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.7; }
+    .cta-sub strong {
+      background: linear-gradient(90deg, #FFD700, #FF8C00);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+
+    .section-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); }
+
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      .container { padding: 60px 20px; }
+      .guarantee-card { padding: 36px 24px; }
+      .promise-box { padding: 22px 20px; }
+    }
+    @media (max-width: 480px) {
+      .shield-svg { width: 80px; height: 96px; }
+      .cta-btn { font-size: 16px; padding: 16px 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2 class="section-title fade-in">Garanzia "Stress Eliminato o Rimborsato"</h2>
+
+    <div class="shield-wrap fade-in">
+      <svg class="shield-svg" viewBox="0 0 100 120" fill="none">
+        <path d="M50 5L90 20V65C90 85 70 105 50 115C30 105 10 85 10 65V20L50 5Z" fill="url(#shieldGrad)" stroke="url(#shieldStroke)" stroke-width="2"/>
+        <path d="M35 60l12 12 18-22" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <defs>
+          <linearGradient id="shieldGrad" x1="10" y1="5" x2="90" y2="115"><stop stop-color="rgba(0,210,106,0.15)"/><stop offset="1" stop-color="rgba(0,210,106,0.05)"/></linearGradient>
+          <linearGradient id="shieldStroke" x1="10" y1="5" x2="90" y2="115"><stop stop-color="#00D26A"/><stop offset="1" stop-color="#00F5A0"/></linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <div class="guarantee-card fade-in">
+      <div class="guarantee-content">
+        <p>Ecco la mia promessa.</p>
+
+        <p>Accedi subito a tutto.</p>
+
+        <ul class="guarantee-list">
+          <li><svg class="list-arrow" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="#00D26A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> segui le lezioni pratiche,</li>
+          <li><svg class="list-arrow" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="#00D26A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> prova il metodo dei 6 minuti,</li>
+          <li><svg class="list-arrow" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="#00D26A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> usa l'audio…</li>
+        </ul>
+
+        <div class="promise-box">
+          <p>Se entro 30 giorni non hai la lucidità mentale che contraddistingue le menti più brillanti,</p>
+          <p>se non ti svegli al mattino completamente riposato e rigenerato pronto a spaccare la giornata,</p>
+          <p>se durante il giorno non provi ondate di energia genuina data dalla coerenza cardiaca…</p>
+        </div>
+
+        <p>Scrivici.<br>
+        <strong>Ti rimborsiamo ogni centesimo.</strong><br>
+        E tieni comunque tutto, gratis.</p>
+
+        <p class="no-risk">Niente complicazioni. Nessuna scusa. Nessun problema.</p>
+
+        <p class="bold-statement">Hai 30 giorni interi per dimostrare a te stesso che funziona.<br>
+        Il rischio è tutto sulle nostre spalle.</p>
+      </div>
+    </div>
+
+    <div class="cta-wrap fade-in">
+      <a href="https://leonardoleone.thrivecart.com/stress-reset-system/" target="_blank" rel="noopener" class="cta-btn">Ottieni il 75% di sconto sul programma</a>
+      <div class="cta-sub">
+        <strong>57 Posti Rimasti</strong> per accedere a Stress Reset System a 7 euro<br>
+        Garanzia soddisfatto o rimborsato di 120 giorni
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+        });
+      }, { threshold: 0.1 });
+      var els = document.querySelectorAll('.fade-in');
+      els.forEach(function(el, i) { el.style.transitionDelay = (i * 0.08) + 's'; observer.observe(el); });
+    });
+  </script>
+</body>
+</html>
