@@ -1,0 +1,72 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@keyframes arrowPulse { 0%, 100% { stroke: rgba(255,255,255,0.12); } 50% { stroke: rgba(255,59,59,0.3); } }
+@keyframes arrowHeadPulse { 0%, 100% { fill: rgba(255,255,255,0.2); } 50% { fill: rgba(255,59,59,0.4); } }
+@keyframes nodeGlow { 0% { box-shadow: 0 0 10px rgba(255,255,255,0.05); } 100% { box-shadow: 0 0 24px rgba(255,255,255,0.12); } }
+</style>
+
+<div style="background: #0F0F24; color: #FFFFFF; font-family: 'Inter Tight', sans-serif; font-size: 17px; line-height: 1.7; padding: 80px 24px;">
+  <div style="max-width: 880px; margin: 0 auto;">
+
+    <h2 style="font-family: 'Inter Tight', sans-serif; font-weight: 700; font-size: clamp(36px, 6vw, 64px); text-align: center; margin: 0 0 50px 0; line-height: 1.1; color: #fff;">Ecco come stai creando <span style="background: linear-gradient(120deg, rgba(99,102,241,0.3) 0%, rgba(139,92,246,0.3) 100%); padding: 2px 8px; border-radius: 4px;">Stress</span> infinito nel tuo corpo</h2>
+
+    <div style="display: flex; gap: 48px; align-items: flex-start; flex-wrap: wrap;">
+
+      <!-- Text Column -->
+      <div style="flex: 1; min-width: 280px;">
+        <p style="margin: 0 0 20px 0; font-size: 17px; line-height: 1.8; color: rgba(255,255,255,0.7);">Il cuore e il cervello comunicano continuamente tra loro.</p>
+        <p style="margin: 0 0 20px 0; font-size: 17px; line-height: 1.8; color: rgba(255,255,255,0.7);">Ma c'è una cosa che quasi nessuno sa: <strong style="color: #fff;">è il cuore a mandare più segnali al cervello</strong> di quanti il cervello ne mandi al cuore.</p>
+        <p style="margin: 0 0 20px 0; font-size: 17px; line-height: 1.8; color: rgba(255,255,255,0.7);">Il cervello decide se sei al sicuro o in pericolo <strong style="color: #fff;">in base al ritmo del battito cardiaco.</strong></p>
+        <p style="margin: 0 0 20px 0; font-size: 17px; line-height: 1.8; color: rgba(255,255,255,0.7);">Quando sei sotto stress, il ritmo del cuore diventa irregolare, disordinato.</p>
+        <p style="margin: 0 0 20px 0; font-size: 17px; line-height: 1.8; color: rgba(255,255,255,0.7);">Il cervello legge quel ritmo caotico come un <span style="color: #FF3B3B; font-weight: 700;">segnale di pericolo</span> e riempie il corpo di cortisolo e adrenalina.</p>
+        <p style="margin: 0 0 20px 0; font-size: 17px; line-height: 1.8; color: rgba(255,255,255,0.7);">Questi ormoni rendono il battito <strong style="color: #fff;">ancora più irregolare.</strong></p>
+        <p style="margin: 0 0 20px 0; font-size: 17px; line-height: 1.8; color: rgba(255,255,255,0.7);">E questo convince il cervello <strong style="color: #fff;">ancora di più</strong> che sei in pericolo.</p>
+        <div style="background: rgba(255,59,59,0.06); border-left: 3px solid #FF3B3B; border-radius: 0 16px 16px 0; padding: 20px 24px; margin-top: 28px; font-size: 17px; font-weight: 700; line-height: 1.7; color: rgba(255,255,255,0.9);">
+          È un circolo vizioso che si autoalimenta e che la forza di volontà da sola non riesce a spezzare.
+        </div>
+      </div>
+
+      <!-- Visual Column -->
+      <div style="flex: 0 0 360px; max-width: 360px;">
+
+        <!-- Loop Diagram -->
+        <div style="position: relative; width: 300px; height: 300px; margin: 0 auto 30px;">
+          <!-- Arrows -->
+          <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;">
+            <svg viewBox="0 0 300 300" fill="none" style="width: 100%; height: 100%;">
+              <path d="M180 25 Q270 25 270 115" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" fill="none" stroke-dasharray="6 4" marker-end="url(#ah2)"/>
+              <path d="M270 185 Q270 275 180 275" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" fill="none" stroke-dasharray="6 4" marker-end="url(#ah2)"/>
+              <path d="M120 275 Q30 275 30 185" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" fill="none" stroke-dasharray="6 4" marker-end="url(#ah2)"/>
+              <path d="M30 115 Q30 25 120 25" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" fill="none" stroke-dasharray="6 4" marker-end="url(#ah2)"/>
+              <defs>
+                <marker id="ah2" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+                  <polygon points="0 0, 7 2.5, 0 5" fill="rgba(255,255,255,0.2)"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+          <!-- Nodes -->
+          <div style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 100px; height: 100px; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; font-size: 12px; font-weight: 700; line-height: 1.2; z-index: 2; padding: 8px; background: linear-gradient(135deg, #FF3B3B, #cc0000); color: #fff; animation: nodeGlow 3s ease-in-out infinite alternate;">
+            <span style="font-size: 13px; font-weight: 700;">Cuore</span><br><span style="font-size: 11px; opacity: 0.85; font-weight: 600;">Irregolare</span>
+          </div>
+          <div style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 100px; height: 100px; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; font-size: 12px; font-weight: 700; line-height: 1.2; z-index: 2; padding: 8px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); backdrop-filter: blur(8px); color: #fff; animation: nodeGlow 3s ease-in-out infinite alternate;">
+            <span style="font-size: 13px; font-weight: 700;">Cervello</span><br><span style="font-size: 11px; opacity: 0.85; font-weight: 600;">in Allarme</span>
+          </div>
+          <div style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100px; height: 100px; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; font-size: 12px; font-weight: 700; line-height: 1.2; z-index: 2; padding: 8px; background: linear-gradient(135deg, #FFD700, #FF8C00); color: #0A0A1A; animation: nodeGlow 3s ease-in-out infinite alternate;">
+            <span style="font-size: 13px; font-weight: 700;">Cortisolo</span><br><span style="font-size: 11px; opacity: 0.85; font-weight: 600;">Adrenalina</span>
+          </div>
+          <div style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 100px; height: 100px; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; font-size: 12px; font-weight: 700; line-height: 1.2; z-index: 2; padding: 8px; background: linear-gradient(135deg, #8B5CF6, #6366F1); color: #fff; animation: nodeGlow 3s ease-in-out infinite alternate;">
+            <span style="font-size: 13px; font-weight: 700;">Stress</span><br><span style="font-size: 11px; opacity: 0.85; font-weight: 600;">Cronico</span>
+          </div>
+        </div>
+
+        <!-- Image -->
+        <div style="width: 100%; height: 280px; border-radius: 24px; overflow: hidden;">
+          <img src="https://lmspro00.github.io/landing1icmd/images/stress-loop.png" alt="Uomo con dolore al petto" style="width: 100%; height: 100%; object-fit: cover; border-radius: 24px; display: block;" onerror="this.style.display='none'">
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div style="height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); margin-top: 40px;"></div>
+</div>
