@@ -1,17 +1,24 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 @keyframes ctaPulse { 0%, 100% { box-shadow: 0 4px 20px rgba(0,210,106,0.3); } 50% { box-shadow: 0 4px 28px rgba(0,210,106,0.45); } }
+@media (max-width: 768px) {
+  #icmd-s07 { padding: 48px 16px !important; }
+  #icmd-s07 .s07-flex { flex-direction: column !important; gap: 24px !important; }
+  #icmd-s07 .s07-img { flex: 1 1 auto !important; max-width: 100% !important; }
+  #icmd-s07 .s07-img > div { height: 240px !important; }
+  #icmd-s07 .s07-cta { font-size: 16px !important; padding: 16px 24px !important; }
+}
 </style>
 
-<div style="background: #0A0A1A; color: #FFFFFF; font-family: 'Inter Tight', sans-serif; font-size: 17px; line-height: 1.7; padding: 80px 24px;">
+<div id="icmd-s07" style="background: #0A0A1A; color: #FFFFFF; font-family: 'Inter Tight', sans-serif; font-size: 17px; line-height: 1.7; padding: 80px 24px;">
   <div style="max-width: 880px; margin: 0 auto;">
 
     <h2 style="font-family: 'Inter Tight', sans-serif; font-weight: 700; font-size: clamp(36px, 6vw, 64px); text-align: center; margin: 0 0 50px 0; line-height: 1.1; color: #fff;">Coerenza Cardiaca: Elimina lo stress in <span style="background: linear-gradient(90deg, #00D26A, #00F5A0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">6 minuti</span></h2>
 
-    <div style="display: flex; gap: 44px; align-items: center; flex-wrap: wrap;">
+    <div class="s07-flex" style="display: flex; gap: 44px; align-items: center; flex-wrap: wrap;">
 
       <!-- Image -->
-      <div style="flex: 0 0 380px; max-width: 380px;">
+      <div class="s07-img" style="flex: 0 0 380px; max-width: 380px;">
         <div style="width: 100%; height: 340px; border-radius: 24px; overflow: hidden;">
           <img src="https://lmspro00.github.io/landing1icmd/images/soluzione-coerenza.jpg" alt="Donna in stato di calma e coerenza cardiaca" style="width: 100%; height: 100%; object-fit: cover; border-radius: 24px; display: block;" onerror="this.style.display='none'">
         </div>

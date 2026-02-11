@@ -1,15 +1,20 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 @keyframes ctaPulse { 0%, 100% { box-shadow: 0 4px 20px rgba(0,210,106,0.3); } 50% { box-shadow: 0 4px 28px rgba(0,210,106,0.45); } }
+@media (max-width: 768px) {
+  #icmd-s13 { padding: 48px 16px !important; }
+  #icmd-s13 .s13-warn { padding: 32px 20px !important; }
+  #icmd-s13 .s13-cta { font-size: 16px !important; padding: 16px 24px !important; }
+}
 </style>
 
-<div style="background: #0A0A1A; color: #FFFFFF; font-family: 'Inter Tight', sans-serif; font-size: 17px; line-height: 1.7; padding: 80px 24px;">
+<div id="icmd-s13" style="background: #0A0A1A; color: #FFFFFF; font-family: 'Inter Tight', sans-serif; font-size: 17px; line-height: 1.7; padding: 80px 24px;">
   <div style="max-width: 880px; margin: 0 auto;">
 
     <h2 style="font-family: 'Inter Tight', sans-serif; font-weight: 700; font-size: clamp(32px, 5.5vw, 56px); text-align: center; margin: 0 0 40px 0; line-height: 1.1; color: #FF3B3B;">ATTENZIONE: Non possiamo tenere questo prezzo ancora per molto</h2>
 
     <!-- Warning Box -->
-    <div style="position: relative; background: rgba(255,59,59,0.04); border: 1px solid rgba(255,59,59,0.15); border-radius: 20px; padding: 44px 40px; max-width: 700px; margin: 0 auto 50px; overflow: hidden;">
+    <div class="s13-warn" style="position: relative; background: rgba(255,59,59,0.04); border: 1px solid rgba(255,59,59,0.15); border-radius: 20px; padding: 44px 40px; max-width: 700px; margin: 0 auto 50px; overflow: hidden;">
       <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #FF3B3B, #ff6b6b, #FF3B3B);"></div>
 
       <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,59,59,0.1); border: 1px solid rgba(255,59,59,0.25); color: #FF3B3B; font-size: 12px; font-weight: 700; padding: 5px 16px; border-radius: 50px; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 24px;">

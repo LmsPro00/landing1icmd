@@ -3,14 +3,22 @@
 @keyframes arrowPulse { 0%, 100% { stroke: rgba(255,255,255,0.12); } 50% { stroke: rgba(255,59,59,0.3); } }
 @keyframes arrowHeadPulse { 0%, 100% { fill: rgba(255,255,255,0.2); } 50% { fill: rgba(255,59,59,0.4); } }
 @keyframes nodeGlow { 0% { box-shadow: 0 0 10px rgba(255,255,255,0.05); } 100% { box-shadow: 0 0 24px rgba(255,255,255,0.12); } }
+@media (max-width: 768px) {
+  #icmd-s06 { padding: 48px 16px !important; }
+  #icmd-s06 .s06-flex { flex-direction: column !important; gap: 28px !important; }
+  #icmd-s06 .s06-visual { flex: 1 1 auto !important; max-width: 100% !important; }
+  #icmd-s06 .s06-diagram { width: 240px !important; height: 240px !important; }
+  #icmd-s06 .s06-node { width: 80px !important; height: 80px !important; }
+  #icmd-s06 .s06-node span { font-size: 11px !important; }
+}
 </style>
 
-<div style="background: #0F0F24; color: #FFFFFF; font-family: 'Inter Tight', sans-serif; font-size: 17px; line-height: 1.7; padding: 80px 24px;">
+<div id="icmd-s06" style="background: #0F0F24; color: #FFFFFF; font-family: 'Inter Tight', sans-serif; font-size: 17px; line-height: 1.7; padding: 80px 24px;">
   <div style="max-width: 880px; margin: 0 auto;">
 
     <h2 style="font-family: 'Inter Tight', sans-serif; font-weight: 700; font-size: clamp(36px, 6vw, 64px); text-align: center; margin: 0 0 50px 0; line-height: 1.1; color: #fff;">Ecco come stai creando <span style="background: linear-gradient(120deg, rgba(99,102,241,0.3) 0%, rgba(139,92,246,0.3) 100%); padding: 2px 8px; border-radius: 4px;">Stress</span> infinito nel tuo corpo</h2>
 
-    <div style="display: flex; gap: 48px; align-items: flex-start; flex-wrap: wrap;">
+    <div class="s06-flex" style="display: flex; gap: 48px; align-items: flex-start; flex-wrap: wrap;">
 
       <!-- Text Column -->
       <div style="flex: 1; min-width: 280px;">
@@ -27,7 +35,7 @@
       </div>
 
       <!-- Visual Column -->
-      <div style="flex: 0 0 360px; max-width: 360px;">
+      <div class="s06-visual" style="flex: 0 0 360px; max-width: 360px;">
 
         <!-- Loop Diagram -->
         <div style="position: relative; width: 300px; height: 300px; margin: 0 auto 30px;">

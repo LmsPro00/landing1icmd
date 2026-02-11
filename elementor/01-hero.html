@@ -2,6 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 @keyframes marqueeScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 @keyframes ctaPulse { 0%, 100% { box-shadow: 0 4px 20px rgba(0,210,106,0.3); } 50% { box-shadow: 0 4px 28px rgba(0,210,106,0.45); } }
+@media (max-width: 768px) {
+  [data-hero-container] { padding: 36px 16px 28px !important; }
+  [data-hero-flex] { flex-direction: column !important; gap: 28px !important; }
+  [data-hero-img] { flex: 1 1 auto !important; max-width: 260px !important; margin: 0 auto !important; order: -1; }
+  [data-hero-cta] { font-size: 16px !important; padding: 16px 24px !important; }
+}
 </style>
 
 <div style="background: #0A0A1A; color: #FFFFFF; font-family: 'Inter Tight', sans-serif; font-size: 17px; line-height: 1.7; overflow-x: hidden; margin: 0; padding: 0;">
@@ -17,8 +23,8 @@
   </div>
 
   <!-- Container -->
-  <div style="max-width: 1060px; margin: 0 auto; padding: 52px 28px 40px;">
-    <div style="display: flex; align-items: center; gap: 48px; flex-wrap: wrap;">
+  <div data-hero-container style="max-width: 1060px; margin: 0 auto; padding: 52px 28px 40px;">
+    <div data-hero-flex style="display: flex; align-items: center; gap: 48px; flex-wrap: wrap;">
 
       <!-- Text Column -->
       <div style="flex: 1; min-width: 280px;">
@@ -51,7 +57,7 @@
 
         <!-- CTA -->
         <div style="margin-top: 8px;">
-          <a href="https://leonardoleone.thrivecart.com/stress-reset-system/" target="_blank" rel="noopener" style="display: inline-block; background: linear-gradient(135deg, #00D26A, #00F5A0); color: #fff; font-family: 'Inter Tight', sans-serif; font-size: 18px; font-weight: 700; padding: 18px 44px; border-radius: 14px; text-decoration: none; box-shadow: 0 4px 20px rgba(0,210,106,0.3); animation: ctaPulse 3s ease-in-out infinite; max-width: 100%; box-sizing: border-box; text-align: center;">Ottieni il 75% di sconto sul programma</a>
+          <a data-hero-cta href="https://leonardoleone.thrivecart.com/stress-reset-system/" target="_blank" rel="noopener" style="display: inline-block; background: linear-gradient(135deg, #00D26A, #00F5A0); color: #fff; font-family: 'Inter Tight', sans-serif; font-size: 18px; font-weight: 700; padding: 18px 44px; border-radius: 14px; text-decoration: none; box-shadow: 0 4px 20px rgba(0,210,106,0.3); animation: ctaPulse 3s ease-in-out infinite; max-width: 100%; box-sizing: border-box; text-align: center;">Ottieni il 75% di sconto sul programma</a>
           <div style="margin-top: 14px; font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.7;">
             <strong style="background: linear-gradient(90deg, #FFD700, #FF8C00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">57 Posti Rimasti</strong> per accedere a Stress Reset System a 7 euro<br>
             Garanzia soddisfatto o rimborsato di 120 giorni
@@ -61,7 +67,7 @@
       </div>
 
       <!-- Image Column -->
-      <div style="flex: 0 0 380px; max-width: 380px;">
+      <div data-hero-img style="flex: 0 0 380px; max-width: 380px;">
         <img src="https://lmspro00.github.io/landing1icmd/images/hero-visual.png" alt="Stress Reset System — Mockup App" style="width: 100%; height: auto; display: block;" onerror="this.style.display='none'">
       </div>
 

@@ -1,17 +1,24 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 @keyframes ctaPulse { 0%, 100% { box-shadow: 0 4px 20px rgba(0,210,106,0.3); } 50% { box-shadow: 0 4px 28px rgba(0,210,106,0.45); } }
+@media (max-width: 768px) {
+  #icmd-s04 { padding: 48px 16px !important; }
+  #icmd-s04 .s04-flex { flex-direction: column !important; gap: 24px !important; }
+  #icmd-s04 .s04-img { flex: 1 1 auto !important; max-width: 100% !important; }
+  #icmd-s04 .s04-img > div { height: 300px !important; }
+  #icmd-s04 .s04-cta { font-size: 16px !important; padding: 16px 24px !important; }
+}
 </style>
 
-<div style="background: #0F0F24; color: #FFFFFF; font-family: 'Inter Tight', sans-serif; font-size: 17px; line-height: 1.7; padding: 80px 24px;">
+<div id="icmd-s04" style="background: #0F0F24; color: #FFFFFF; font-family: 'Inter Tight', sans-serif; font-size: 17px; line-height: 1.7; padding: 80px 24px;">
   <div style="max-width: 880px; margin: 0 auto;">
 
     <h2 style="font-family: 'Inter Tight', sans-serif; font-weight: 700; font-size: clamp(36px, 6vw, 64px); text-align: center; margin: 0 0 50px 0; line-height: 1.1; color: #fff;">CHI È LEONARDO LEONE?</h2>
 
-    <div style="display: flex; gap: 40px; align-items: flex-start; flex-wrap: wrap;">
+    <div class="s04-flex" style="display: flex; gap: 40px; align-items: flex-start; flex-wrap: wrap;">
 
       <!-- Image -->
-      <div style="flex: 0 0 300px; max-width: 300px;">
+      <div class="s04-img" style="flex: 0 0 300px; max-width: 300px;">
         <div style="width: 100%; height: 420px; border-radius: 24px; overflow: hidden; box-shadow: 0 8px 40px rgba(0,0,0,0.4);">
           <img src="https://lmspro00.github.io/landing1icmd/images/leonardo-leone.png" alt="Leonardo Leone" style="width: 100%; height: 100%; object-fit: cover; border-radius: 24px; display: block;" onerror="this.style.display='none'">
         </div>
@@ -34,7 +41,7 @@
 
     <!-- CTA -->
     <div style="text-align: center; margin-top: 50px;">
-      <a href="https://leonardoleone.thrivecart.com/stress-reset-system/" target="_blank" rel="noopener" style="display: inline-block; background: linear-gradient(135deg, #00D26A, #00F5A0); color: #fff; font-family: 'Inter Tight', sans-serif; font-size: 18px; font-weight: 700; padding: 18px 44px; border-radius: 14px; text-decoration: none; box-shadow: 0 4px 20px rgba(0,210,106,0.3); animation: ctaPulse 3s ease-in-out infinite; max-width: 100%; box-sizing: border-box; text-align: center;">Ottieni il 75% di sconto sul programma</a>
+      <a class="s04-cta" href="https://leonardoleone.thrivecart.com/stress-reset-system/" target="_blank" rel="noopener" style="display: inline-block; background: linear-gradient(135deg, #00D26A, #00F5A0); color: #fff; font-family: 'Inter Tight', sans-serif; font-size: 18px; font-weight: 700; padding: 18px 44px; border-radius: 14px; text-decoration: none; box-shadow: 0 4px 20px rgba(0,210,106,0.3); animation: ctaPulse 3s ease-in-out infinite; max-width: 100%; box-sizing: border-box; text-align: center;">Ottieni il 75% di sconto sul programma</a>
       <div style="margin-top: 14px; font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.7;">
         <strong style="background: linear-gradient(90deg, #FFD700, #FF8C00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">57 Posti Rimasti</strong> per accedere a Stress Reset System a 7 euro<br>
         Garanzia soddisfatto o rimborsato di 120 giorni

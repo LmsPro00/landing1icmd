@@ -1,9 +1,16 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 @keyframes ctaPulse { 0%, 100% { box-shadow: 0 4px 20px rgba(0,210,106,0.3); } 50% { box-shadow: 0 4px 28px rgba(0,210,106,0.45); } }
+@media (max-width: 768px) {
+  #icmd-s12 { padding: 48px 16px !important; }
+  #icmd-s12 .s12-card { padding: 32px 20px !important; }
+  #icmd-s12 .s12-promise { padding: 20px 16px !important; text-align: left !important; }
+  #icmd-s12 .s12-promise p { font-size: 15px !important; }
+  #icmd-s12 .s12-cta { font-size: 16px !important; padding: 16px 24px !important; }
+}
 </style>
 
-<div style="background: #0F0F24; color: #FFFFFF; font-family: 'Inter Tight', sans-serif; font-size: 17px; line-height: 1.7; padding: 80px 24px;">
+<div id="icmd-s12" style="background: #0F0F24; color: #FFFFFF; font-family: 'Inter Tight', sans-serif; font-size: 17px; line-height: 1.7; padding: 80px 24px;">
   <div style="max-width: 880px; margin: 0 auto;">
 
     <h2 style="font-family: 'Inter Tight', sans-serif; font-weight: 700; font-size: clamp(36px, 6vw, 64px); text-align: center; margin: 0 0 40px 0; line-height: 1.1; color: #fff;">Garanzia "Stress Eliminato o Rimborsato"</h2>
@@ -21,7 +28,7 @@
     </div>
 
     <!-- Guarantee Card -->
-    <div style="position: relative; background: rgba(255,255,255,0.03); border: 1px solid rgba(0,210,106,0.2); border-radius: 20px; max-width: 700px; margin: 0 auto; padding: 48px 40px; overflow: hidden;">
+    <div class="s12-card" style="position: relative; background: rgba(255,255,255,0.03); border: 1px solid rgba(0,210,106,0.2); border-radius: 20px; max-width: 700px; margin: 0 auto; padding: 48px 40px; overflow: hidden;">
       <div style="text-align: center; position: relative; z-index: 1;">
         <p style="font-size: 17px; line-height: 1.8; color: rgba(255,255,255,0.7); margin: 0 0 16px 0;">Ecco la mia promessa.</p>
         <p style="font-size: 17px; line-height: 1.8; color: rgba(255,255,255,0.7); margin: 0 0 16px 0;">Accedi subito a tutto.</p>
@@ -33,7 +40,7 @@
         </ul>
 
         <!-- Promise Box -->
-        <div style="background: rgba(0,210,106,0.04); border: 1px solid rgba(0,210,106,0.15); border-radius: 16px; padding: 28px 32px; margin: 24px 0;">
+        <div class="s12-promise" style="background: rgba(0,210,106,0.04); border: 1px solid rgba(0,210,106,0.15); border-radius: 16px; padding: 28px 32px; margin: 24px 0;">
           <p style="font-size: 17px; line-height: 1.8; color: rgba(255,255,255,0.7); margin: 0 0 16px 0;">Se entro 30 giorni non hai la lucidità mentale che contraddistingue le menti più brillanti,</p>
           <p style="font-size: 17px; line-height: 1.8; color: rgba(255,255,255,0.7); margin: 0 0 16px 0;">se non ti svegli al mattino completamente riposato e rigenerato pronto a spaccare la giornata,</p>
           <p style="font-size: 17px; line-height: 1.8; color: rgba(255,255,255,0.7); margin: 0;">se durante il giorno non provi ondate di energia genuina data dalla coerenza cardiaca…</p>
